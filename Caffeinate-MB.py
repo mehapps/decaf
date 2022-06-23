@@ -1,4 +1,4 @@
-import rumps, os, subprocess, signal, time
+import rumps, subprocess, signal
 
 def prevent_sleep(length):
     global caffeinate
@@ -8,6 +8,6 @@ def prevent_sleep(length):
         command = "caffeinate -t " + length
         caffeinate = subprocess.Popen(command)
 
-prevent_sleep(0)
-time.sleep(5)
-caffeinate.send_signal(signal.SIGINT)
+def kill_caffeinate():
+    caffeinate.send_signal(signal.SIGINT)
+
