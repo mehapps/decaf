@@ -1,4 +1,7 @@
-import rumps, subprocess, signal
+import rumps, subprocess, signal, sys, os
+
+if 'darwin' not in sys.platform:
+    sys.exit("This program only runs on computers running macOS.")
 
 def prevent_sleep(length):
     global caffeinate
