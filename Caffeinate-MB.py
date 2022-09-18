@@ -13,12 +13,12 @@ def prevent_sleep(length):
         command = "caffeinate -t" + str(length)
         caffeinate = subprocess.Popen(command, shell = True)
         hms = str(datetime.timedelta(seconds=length))
-        notification_text = "Sleeping for " + hms + "!"
+        notification_text = "Not sleeping for " + hms + "!"
         rumps.notification("Decaf", "―", notification_text, sound=True, icon = clock_icon)
 
 def kill_caffeinate():
     caffeinate.send_signal(signal.SIGINT)
-    rumps.notification("Decaf", "―", "Stopped sleeping!", sound=True, icon=clock_icon)
+    rumps.notification("Decaf", "―", "Your Mac can sleep now!", sound=True, icon=clock_icon)
 
 @rumps.clicked("Forever")
 def about(sender):
